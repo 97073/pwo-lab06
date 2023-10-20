@@ -32,15 +32,14 @@ public class FibonacciGenerator {
     }
 
     public BigDecimal getTerm(int i) {
-        if (i < 0) {
-            throw new IllegalArgumentException();
-        }
-        if (i < lastIndex) {
+        if (i < 0) throw new IllegalArgumentException();
+        
+       /* if (i < lastIndex) */
             reset();
-        }
-        while (lastIndex <= i) {
+        
+        while (lastIndex <= i) 
             nextTerm();
-        }
+        
         return current;
     }
 }
