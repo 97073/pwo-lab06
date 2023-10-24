@@ -34,7 +34,7 @@ f_2 = new BigDecimal(0);
  f_2 = f_1;
  f_1 = current;
  } else if (lastIndex == 1) {
- current = new BigDecimal(1)
+ current = new BigDecimal(1);
 
  } else {
  current = new BigDecimal(0);
