@@ -9,28 +9,33 @@
  */
 package pwo.seq;
 
- import java.math.BigDecimal;
+import java.math.BigDecimal;
 
- public class LucasGenerator extends FibonacciGenerator {
+public class LucasGenerator extends FibonacciGenerator {
 
- public LucasGenerator() {
- current = new BigDecimal(2);
- f_2 = new BigDecimal(2);
- }
+    public LucasGenerator() {
+        current = new BigDecimal(2);
+        f_2 = new BigDecimal(2);
+        lastIndex = 1; // Set lastIndex to 1 initially
+    }
 
- @Override
- public void reset() {
- super.reset();
- current = new BigDecimal(2);
- f_2 = new BigDecimal(2);
- }
+    @Override
+    public void reset() {
+        super.reset();
+        current = new BigDecimal(2);
+        f_2 = new BigDecimal(2);
+        lastIndex = 1; // Reset lastIndex to 1
+    }
 
- @Override
- public BigDecimal nextTerm() {
- if(lastIndex==0) {
- lastIndex++;
- return new BigDecimal(2);
+    @Override
+    public BigDecimal nextTerm() {
+        // You can skip the first term calculation by incrementing lastIndex
+        if (lastIndex == 1) {
+            lastIndex++;
+            return current;
+        }
+
+        return super.nextTerm();
+    }
 }
- return super.nextTerm();
- }
-}
+

@@ -12,7 +12,8 @@ package pwo.seq;
 import java.math.BigDecimal;
 import pwo.utils.SequenceGenerator;
 
-abstract class Generator implements SequenceGenerator{
+
+public abstract class Generator implements SequenceGenerator{
 
 protected int lastIndex = 0;
 protected BigDecimal

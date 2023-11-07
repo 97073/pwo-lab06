@@ -17,8 +17,7 @@ package pwo.seq;
  LUC, //Lucas
 TRI; //Tribonacci
 private static final int B = 0, L = 3;
-private static final String FIX_SEQTYPE
- = "Problem in " + SeqType.class.getName();
+private static final String FIX_SEQTYPE = "Problem in " + SeqType.class.getName();
 
  static {
  Stream.of(SeqType.values()).forEach(t -> {
