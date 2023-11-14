@@ -4,17 +4,37 @@
  */
 
 /**
+ * Typ wyliczeniowy obejmujący wszystkie
+ * zrealizowane ciągi. <br>
+ * Jest to również menadżer służący do pozyskania
+ * obiektu klasy ciągu metodą {@link #getGenerator() }
  *
  * @author alina
+ * @version 1.0.0
  */
 package pwo.seq;
 
  import java.util.stream.Stream;
 
  public enum SeqType {
-
+/**
+ * Ciąg Fibonacciego
+ * @see <a href="https://pl.wikipedia.org/wiki
+ /Ci%C4%85g_Fibonacciego">Wikipedia</a>
+ */
  FIB, //Fibonacci
+ /**
+ * Ciąg Lucasa
+ * @see <a href="https://en.wikipedia.org/wiki
+ /Lucas_number">Wikipedia</a>
+ */
  LUC, //Lucas
+  /**
+ * Ciąg Tribonacciego
+ * @see <a href="https://pl.wikipedia.org/
+ wiki/Ci%C4%85g_Fibonacciego#Ci%C4%85g_%E2%80%9
+ ETribonacciego%E2%80%9D">Wikipedia</a>
+ */
 TRI; //Tribonacci
 private static final int B = 0, L = 3;
 private static final String FIX_SEQTYPE = "Problem in " + SeqType.class.getName();
@@ -26,7 +46,14 @@ private static final String FIX_SEQTYPE = "Problem in " + SeqType.class.getName(
  }
  });
  }
-
+/**
+ * Pozyskanie wartości typu na podstawie tekstu.<br>
+ * Metoda nie jest czuła na wielkość czcionki.
+ * Tylko 3 pierwsze litery słowa są znaczące.
+ *
+ * @param type W obecnej wersji: "fib", "luc" lub "tri"
+ * @return Odpowiadająca argumentowi wartość typu lub null
+ */
  public static SeqType fromString(String type) {
  try {
  return valueOf(type.trim()
@@ -35,7 +62,12 @@ private static final String FIX_SEQTYPE = "Problem in " + SeqType.class.getName(
  | StringIndexOutOfBoundsException
  | IllegalArgumentException ex) { return null;}
  }
-
+/**
+* Tworzy obiekt generatora.
+ * Korespondujacy z nadaną wartością.
+ *
+ * @return Obiekt implementujący {@link pwo.utils.SequenceGenerator}
+ */
  public Generator getGenerator() {
  switch (this) {
  case FIB: return new FibonacciGenerator();
